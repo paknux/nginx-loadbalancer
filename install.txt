@@ -1,2 +1,5 @@
-npm install express systeminformation
+sudo apt update
+sudo apt install nodejs npm
+npm init -y
+npm install express socket.io os-utils systeminformation
 node server.js
