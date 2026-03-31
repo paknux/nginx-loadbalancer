@@ -1,0 +1,2 @@
+npm install express systeminformation
+node server.js
