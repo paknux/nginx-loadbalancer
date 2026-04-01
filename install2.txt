@@ -1,0 +1,151 @@
+#!/bin/bash
+sudo apt update 
+sudo apt install nodejs npm -y
+npm init -y
+npm install express socket.io os-utils systeminformation 
+sudo npm install -g pm2
+git clone https://github.com/paknux/nginx-loadbalancer
+cd nginx-loadbalancer
+
+
+sudo pm2 start server.js --name "monitor-server"
+sudo pm2 startup systemd
+sudo pm2 save 
+
+
+
+# pm2 startup systemd -u root --hp /root
+# node server.js
+# nohup node server.js &
+
+
+======================================================
+User Data (Ubuntu)
+======================================================
+
+#!/bin/bash
+apt update 
+apt install nodejs npm -y
+npm init -y
+npm install express socket.io os-utils systeminformation 
+npm install -g pm2
+
+mkdir -p /opt/monitor-app
+cd /opt/monitor-app
+git clone https://github.com/paknux/nginx-loadbalancer .
+
+pm2 start server.js --name "monitor-server"
+pm2 startup systemd -u root --hp /root
+pm2 save --force
+
+env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u root --hp /root
+
+
+
+
+======================================================
+PAKAI CRONTAB 
+======================================================
+
+#!/bin/bash
+# 1. Update & Install
+apt update -y && apt install nodejs npm git -y
+
+# 2. Setup Folder
+mkdir -p /opt/monitor-app
+cd /opt/monitor-app
+
+# 3. Clone & Install Dependencies
+git clone https://github.com/paknux/nginx-loadbalancer .
+npm install express socket.io os-utils systeminformation
+
+# 4. Daftarkan ke Crontab agar otomatis jalan saat REBOOT nanti
+(crontab -l 2>/dev/null; echo "@reboot sleep 10 && /usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &") | crontab -
+
+# 5. JALANKAN SEKARANG (Agar langsung aktif saat User Data selesai)
+/usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &
+
+
+======================================================
+PAKAI nohup
+======================================================
+
+#!/bin/bash
+# 1. Update dan Install
+apt update -y && apt install nodejs npm git -y
+
+# 2. Persiapan Folder
+mkdir -p /opt/monitor-app
+cd /opt/monitor-app
+
+# 3. Clone dan Install dependencies
+git clone https://github.com/paknux/nginx-loadbalancer .
+npm install express socket.io os-utils systeminformation
+
+# 4. Daftarkan ke Crontab agar jalan setiap kali REBOOT
+# Kita bungkus perintah nohup di dalam crontab
+(crontab -l 2>/dev/null; echo "@reboot cd /opt/monitor-app && nohup node server.js > monitor.out 2>&1 &") | crontab -
+
+# 5. JALANKAN SEKARANG (Start pertama kali)
+nohup node server.js > monitor.out 2>&1 &
+
+
+
+
+======================================================
+DI AMAZON LINUX
+======================================================
+
+#!/bin/bash
+# 1. Update paket dan install Node.js serta Git
+dnf update -y
+dnf install -y nodejs git
+
+# 2. Persiapan Direktori Kerja
+mkdir -p /opt/monitor-app
+cd /opt/monitor-app
+
+# 3. Clone Repository (Gunakan titik agar clone ke folder saat ini)
+git clone https://github.com/paknux/nginx-loadbalancer .
+
+# 4. Install Dependencies Aplikasi & PM2 secara Global
+npm install express socket.io os-utils systeminformation
+npm install -g pm2
+
+# 5. Jalankan Aplikasi dengan PM2
+pm2 start server.js --name "monitor-server"
+
+# 6. SETUP AUTO-REBOOT (PENTING)
+# Perintah ini akan mendaftarkan PM2 ke systemd secara otomatis
+pm2 startup systemd -u root --hp /root --force
+
+# 7. Simpan daftar proses agar otomatis dipanggil saat boot
+pm2 save --force
+
+
+===============================
+DI AZ LINUX PAKAI CRONTAB
+==============================
+
+
+#!/bin/bash
+# 1. Update paket dan install Node.js serta Git
+dnf update -y
+dnf install -y nodejs git
+
+# 2. Persiapan Direktori Kerja
+mkdir -p /opt/monitor-app
+cd /opt/monitor-app
+
+# 3. Clone Repository (Gunakan titik agar clone ke folder saat ini)
+git clone https://github.com/paknux/nginx-loadbalancer .
+
+# 4. Install Dependencies Aplikasi & PM2 secara Global
+npm install express socket.io os-utils systeminformation
+
+# 5. DAFTARKAN REBOOT & JALANKAN SEKARANG
+# Kita pakai @reboot di crontab agar otomatis jalan saat PC nyala
+(crontab -l 2>/dev/null; echo "@reboot cd /opt/monitor-app && node server.js &") | crontab -
+
+# 6. Langsung jalankan aplikasinya sekarang juga di background
+cd /opt/monitor-app && node server.js &
