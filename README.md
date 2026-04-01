@@ -1,8 +1,6 @@
-# Aplikasi CRUD PHP-MySQL yang menyimpan file di **AWS S3** 
+# Load Balancer NginX
 ---
 
-## menggunakan **EC2 Ubuntu 24.04** di lingkungan **AWS Academy**.
----
 
 ````
 #!/bin/bash
