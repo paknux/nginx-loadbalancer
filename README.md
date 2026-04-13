@@ -54,19 +54,19 @@ subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
 ---
 ## B. Ganti Hostname yang sesuai
 
-Masuk ke setiap instance jalankan perintah
+B1. Masuk ke setiap instance jalankan perintah
 
-srv-public:
+misal di srv-public:
 ````
 sudo hostnamectl set-hostname srv-public
 ````
 
-lalu jalankan bash lembali agar perubahan langsung tampak
+B2. lalu jalankan bash lembali agar perubahan langsung tampak
 ````
 exec bash
 ````
 
-lakukan hal yang sama untuk srv-private-1 dan srv-private-2
+B3. Lakukan hal yang sama untuk srv-private-1 dan srv-private-2
 
 
 
