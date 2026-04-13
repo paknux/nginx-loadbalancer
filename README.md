@@ -112,7 +112,7 @@ Instance state > Stop instance
 ````
 
 
-C.7. Stop Monitoring
+C.7. Stop Source/Destination Check
 ````
 Pilih srv-public, kondisinya stopped
 Action > Networking > Change source/destination check > centang Stop > Save
