@@ -1,6 +1,9 @@
 # Load Balancer NginX
 ---
 
+## Konfigurasi
+---
+
 VPC
 ````
 Nama : sekolah
