@@ -54,36 +54,36 @@ subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
 ---
 ## B. Ganti Hostname yang sesuai
 
-B1. Masuk ke setiap instance jalankan perintah
+B.1. Masuk ke setiap instance jalankan perintah
 
 misal di srv-public:
 ````
 sudo hostnamectl set-hostname srv-public
 ````
 
-B2. lalu jalankan bash lembali agar perubahan langsung tampak
+. lalu jalankan bash lembali agar perubahan langsung tampak
 ````
 exec bash
 ````
 
-B3. Lakukan hal yang sama untuk srv-private-1 dan srv-private-2
+B.3. Lakukan hal yang sama untuk srv-private-1 dan srv-private-2
 
 
 
 ---
 ## C. Setting srv-public agar dapat menjadi NAT Instance
 
-C1. Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:
+C.1. Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:
 ````
 net.ipv4.ip_forward=1
 ````
 
-C2. Setelah itu, jalankan agar forwarding aktif
+C.2. Setelah itu, jalankan agar forwarding aktif
 ````
 sudo sysctl -p
 ````
 
-C3. Tampilkan nama interface
+C.3. Tampilkan nama interface
 ````
 ip link show
 ````
@@ -91,25 +91,25 @@ misal diketahui namanya ens5
 
 
 
-C4. Buat rule iptables yang akan mentranslasikan (SNAT-masquerade) setiap paket yang akan keluar dari interface ens5
+C.4. Buat rule iptables yang akan mentranslasikan (SNAT-masquerade) setiap paket yang akan keluar dari interface ens5
 ````
 sudo iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
 ````
 
-C5. Agar aturan ini tidak hilang saat reboot, instal iptables-persistent:
+C.5. Agar aturan ini tidak hilang saat reboot, instal iptables-persistent:
 ````
 sudo apt update && sudo apt install iptables-persistent -y
 ````
 Pilih 'Yes' saat muncul dialog konfirmasi penyimpanan rules
 
-C6. Shutdown instance
+C.6. Shutdown instance
 
-C7. Stop Monitoring
+C.7. Stop Monitoring
 ````
 
 ````
 
-C8. Run kembali instance
+C.8. Run kembali instance
 
 
 ## D. Load Balancer NginX
