@@ -73,25 +73,24 @@ B3. Lakukan hal yang sama untuk srv-private-1 dan srv-private-2
 ---
 ## C. Setting srv-public agar dapat menjadi NAT Instance
 
-Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:
+C1. Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:
 ````
 net.ipv4.ip_forward=1
 ````
 
-Setelah itu, jalankan agar forwarding aktif
+C2. Setelah itu, jalankan agar forwarding aktif
 ````
 sudo sysctl -p
 ````
 
-Tampilkan nama interface
+C3. Tampilkan nama interface
 ````
 ip link show
 ````
 misal diketahui namanya ens5
 
 
-
-Buat rule ip tables yang akan mentranslasikan (SNAT-masquerade) setiap paket yang akan keluar dari interface ens5
+C4. Buat rule ip tables yang akan mentranslasikan (SNAT-masquerade) setiap paket yang akan keluar dari interface ens5
 ````
 sudo iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
 ````
