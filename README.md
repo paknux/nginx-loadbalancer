@@ -22,6 +22,7 @@ subnet-private-3 : 192.168.100.192/26
 srv-public : ubuntu : di subnet-public
 srv-private-1 : ubuntu : di subnet-private-1
 srv-private-2 : ubuntu : di subnet-private-2
+subnet-private-3 sementara kosong nantinya bisa ditempatkan srv-database di sini
 ````
 
 1 SG
