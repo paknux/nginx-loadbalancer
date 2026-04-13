@@ -45,7 +45,7 @@ subnet-associate ke subnet-public
 
 sekolah-private-rt
 subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
-0.0.0.0/0 via IGW instance srv-public
+0.0.0.0/0 via NAT instance srv-public
 ````
 
 
