@@ -50,12 +50,11 @@ subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
 
 
 ---
-## Setting NAT Instance
+## Setting srv-public agar dapat menjadi NAT Instance
 
-Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:\
+Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:
 ````
 net.ipv4.ip_forward=1
-sudo sysctl -p
 ````
 Setelah itu, jalankan 
 ````
