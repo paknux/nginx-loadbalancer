@@ -209,7 +209,7 @@ sudo apt update
 
 Install aplikasi yang diperlukan
 ````
-sudo apt install links
+sudo apt install links nginx -y
 ````
 
 dari srv-public test srv-private-1
