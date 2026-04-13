@@ -288,5 +288,6 @@ misal iP Public srv-public adalah 54.159.201.222
 ````
 http://54.159.201.222
 ````
-
+maka nanti akan muncul bahwa server backend yang melayani request berganti dari dari srv-private-1 ke srv-private-2
+---
 ![Hasil](/image/hasil.png)
