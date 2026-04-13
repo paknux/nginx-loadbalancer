@@ -43,7 +43,10 @@ A.6. Route table : 2 buah
 sekolah-public-rt:
 subnet-associations ke subnet-public
 0.0.0.0/0 via IGW sekolah-igw
+````
 
+Kemudian buat dulu instance EC2 srv-public, baru buat routing table berikut ini:
+````
 sekolah-private-rt:
 subnet-associations ke subnet-private-1, subnet-private-2, subnet-private-3
 0.0.0.0/0 via NAT instance srv-public
