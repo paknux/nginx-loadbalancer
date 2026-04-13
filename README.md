@@ -128,23 +128,39 @@ Instance state > Start instance
 ## D. Load Balancer NginX
 ````
 sudo su
+````
 
+````
 apt update -y 
+````
 
+````
 apt install nodejs npm git -y
+````
 
+````
 mkdir -p /opt/monitor-app
+````
 
+````
 cd /opt/monitor-app
+````
 
+````
 git clone https://github.com/paknux/nginx-loadbalancer .
+````
 
+````
 npm install express socket.io os-utils systeminformation
+````
 
+````
 (crontab -l 2>/dev/null; echo "@reboot sleep 10 && /usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &") | crontab -
+````
 
+````
 /usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &
-
+````
 
 ````
 
