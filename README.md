@@ -288,3 +288,5 @@ misal iP Public srv-public adalah 54.159.201.222
 ````
 http://54.159.201.222
 ````
+
+![Hasil](/image/hasil.png)
