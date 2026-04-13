@@ -40,13 +40,12 @@ sekolah-igw attach ke VPC sekolah
 2 route table
 ````
 sekolah-public-rt
+subnet-associate ke subnet-public
 0.0.0.0/0 via IGW sekolah-igw
-associate ke subnet-public
 
 sekolah-private-rt
+subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
 0.0.0.0/0 via IGW instance srv-public
-associate ke subnet-private-1, subnet-private-2, subnet-private-3
-
 ````
 
 
@@ -84,4 +83,3 @@ npm install express socket.io os-utils systeminformation
 /usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &
 ````
 
----
