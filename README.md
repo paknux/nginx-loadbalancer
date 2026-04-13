@@ -125,7 +125,7 @@ Instance state > Start instance
 ````
 
 
-## D. Load Balancer NginX
+## D. Deploy Aplikasi Server Info di srv-private-1 dan srv-private-2  
 
 D.1. Jadi super user / root
 ````
