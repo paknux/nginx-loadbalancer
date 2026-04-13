@@ -3,13 +3,13 @@
 ---
 ## A. Konfigurasi
 
-VPC
+A1. VPC
 ````
 Nama : sekolah
 IP : 192.168.100.0/24
 ````
 
-4 Subnet 
+A2. Subnet : 4 buah 
 ````
 subnet-public : 192.168.100.0/26
 subnet-private-1 : 192.168.100.64/26
@@ -17,7 +17,7 @@ subnet-private-2 : 192.168.100.128/26
 subnet-private-3 : 192.168.100.192/26
 ````
 
-3 Instance EC2
+A3. Instance EC2 : 3 buah
 ````
 srv-public : ubuntu : di subnet-public
 srv-private-1 : ubuntu : di subnet-private-1
@@ -25,20 +25,20 @@ srv-private-2 : ubuntu : di subnet-private-2
 subnet-private-3 sementara kosong nantinya bisa ditempatkan srv-database di sini
 ````
 
-1 SG
+A4. SG : 1 buah
 ````
 sg-sekolah:
 allow inbound 22/SSH, 80/HTTP, 443/HTTPS, 3306/MySQL, dan ICMP
 from 0.0.0.0/0
 ````
 
-1 IGW
+A5. IGW : 1 buah
 ````
 sekolah-igw attach ke VPC sekolah 
 ````
 
 
-2 route table
+A6. Route table : 2 buah
 ````
 sekolah-public-rt:
 subnet-associate ke subnet-public
