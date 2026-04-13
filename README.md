@@ -106,13 +106,23 @@ sudo apt update && sudo apt install iptables-persistent -y
 Pilih 'Yes' saat muncul dialog konfirmasi penyimpanan rules
 
 C.6. Shutdown instance
+````
+Pilih srv-public
+Instance state > Stop instance
+````
+
 
 C.7. Stop Monitoring
 ````
-
+Pilih srv-public, kondisinya stopped
+Action > Networking > Change source/destination check > centang Stop > Save
 ````
 
 C.8. Run kembali instance
+````
+Pilih srv-public
+Instance state > Start instance
+````
 
 
 ## D. Load Balancer NginX
