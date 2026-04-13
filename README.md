@@ -69,7 +69,7 @@ lalu jalankan bash lembali agar perubahan langsung tampak
 exec bash
 ````
 
-B.3. Lakukan hal yang sama untuk srv-private-1 dan srv-private-2
+B.2. Lakukan hal yang sama untuk srv-private-1 dan srv-private-2
 
 
 
@@ -202,31 +202,31 @@ npm install express socket.io os-utils systeminformation
 
 Test Aplikasi Server Info sudah berjalan di srv-private-1 dan srv-private-2 dari srv-public
 
-Updatae repo
+E.1. Updatae repo
 ````
 sudo apt update
 ````
 
-Install aplikasi yang diperlukan
+E.2. Install aplikasi yang diperlukan
 ````
 sudo apt install links nginx -y
 ````
 
-dari srv-public test srv-private-1
+E.3. dari srv-public test ke srv-private-1
 misal ip srv-private-1 adalah 192.168.100.114
 ````
 links 192.168.100.114:3000
 ````
 
 
-dari srv-public test srv-private-2
+E.4. dari srv-public test ke srv-private-2
 misal ip srv-private-1 adalah 192.168.100.205
 ````
 links 192.168.100.205:3000
 ````
 
 ## F. Konfigurasi load balancing nginx di srv-public
-Buat file konfigurasi baru di /etc/nginx/sites-available/ atau edit file default.
+F.1. Buat file konfigurasi baru di /etc/nginx/sites-available/ atau edit file default.
 ````
 sudo nano /etc/nginx/sites-available/load-balancer
 ````
@@ -239,8 +239,8 @@ upstream backend_servers {
     # Metode distribusi (opsional, default: Round Robin)
     # least_conn; # Mengirim ke server dengan koneksi paling sedikit
     
-    server 192.168.100.114; # IP Server Backend 1
-    server 192.168.100.205; # IP Server Backend 2
+    server 192.168.100.114:3000; # IP dan port Server Backend 1
+    server 192.168.100.205:3000; # IP dan port Server Backend 2
 }
 
 server {
@@ -259,19 +259,29 @@ server {
 }
 ````
 
-4. Hapus konfigurasi default
+F.2. Hapus konfigurasi default
 ````
 sudo rm /etc/nginx/sites-enabled/default
 ````
 
-5. Aktifkan Konfigurasi
+F.3. Aktifkan Konfigurasi
 Buat symbolic link ke folder sites-enabled dan uji konfigurasinya:
 ````
 sudo ln -s /etc/nginx/sites-available/load-balancer /etc/nginx/sites-enabled/
+````
+
+F.4. Test Konfigurasi nginx
+```` 
 sudo nginx -t
 ````
 
-6. Jika muncul pesan syntax is ok, muat ulang Nginx:
+F.5. Jika muncul pesan syntax is ok, muat ulang Nginx:
 ````
 sudo systemctl restart nginx  
+````
+
+F.6. Akses dari client IP public srv-public
+misal iP Public srv-public adalah 54.159.201.222
+````
+http://54.159.201.222
 ````
