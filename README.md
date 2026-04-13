@@ -259,14 +259,19 @@ server {
 }
 ````
 
-4. Aktifkan Konfigurasi
+4. Hapus konfigurasi default
+````
+sudo rm /etc/nginx/sites-enabled/default
+````
+
+5. Aktifkan Konfigurasi
 Buat symbolic link ke folder sites-enabled dan uji konfigurasinya:
 ````
 sudo ln -s /etc/nginx/sites-available/load-balancer /etc/nginx/sites-enabled/
 sudo nginx -t
 ````
 
-Jika muncul pesan syntax is ok, muat ulang Nginx:
+6. Jika muncul pesan syntax is ok, muat ulang Nginx:
 ````
 sudo systemctl restart nginx  
 ````
