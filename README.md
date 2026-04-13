@@ -1,5 +1,4 @@
 # Load Balancer NginX
----
 
 ## Konfigurasi
 
@@ -51,10 +50,9 @@ associate ke subnet-private-1, subnet-private-2, subnet-private-3
 ````
 
 
-
-
-## Setting NAT Instance
 ---
+## Setting NAT Instance
+
 
 ````
 Set srv-public
@@ -62,8 +60,9 @@ Set srv-public
 
 
 
-## Load Balancer NginX
 ---
+## Load Balancer NginX
+
 
 ````
 #!/bin/bash
@@ -84,3 +83,5 @@ npm install express socket.io os-utils systeminformation
 # 5. JALANKAN SEKARANG (Agar langsung aktif saat User Data selesai)
 /usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &
 ````
+
+---
