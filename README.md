@@ -28,7 +28,7 @@ subnet-private-3 sementara kosong nantinya bisa ditempatkan srv-database di sini
 1 SG
 ````
 sg-sekolah:
-allow inbound 22/SSH, 80/HTTP, 443/HTTPS, ICMP
+allow inbound 22/SSH, 80/HTTP, 443/HTTPS, 3306/MySQL, dan ICMP
 from 0.0.0.0/0
 ````
 
