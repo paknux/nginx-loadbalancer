@@ -90,7 +90,8 @@ ip link show
 misal diketahui namanya ens5
 
 
-C4. Buat rule ip tables yang akan mentranslasikan (SNAT-masquerade) setiap paket yang akan keluar dari interface ens5
+
+C4. Buat rule iptables yang akan mentranslasikan (SNAT-masquerade) setiap paket yang akan keluar dari interface ens5
 ````
 sudo iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
 ````
