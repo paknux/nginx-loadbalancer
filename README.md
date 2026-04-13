@@ -239,9 +239,8 @@ upstream backend_servers {
     # Metode distribusi (opsional, default: Round Robin)
     # least_conn; # Mengirim ke server dengan koneksi paling sedikit
     
-    server 10.0.0.101; # IP Server Backend 1
-    server 10.0.0.102; # IP Server Backend 2
-    server 10.0.0.103; # IP Server Backend 3 (Cadangan)
+    server 192.168.100.114; # IP Server Backend 1
+    server 192.168.100.205; # IP Server Backend 2
 }
 
 server {
