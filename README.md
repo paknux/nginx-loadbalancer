@@ -77,12 +77,24 @@ Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:
 ````
 net.ipv4.ip_forward=1
 ````
-Setelah itu, jalankan 
+
+Setelah itu, jalankan agar forwarding aktif
 ````
 sudo sysctl -p
 ````
 
+Tampilkan nama interface
+````
+ip link show
+````
+misal diketahui namanya ens5
 
+
+
+Buat rule ip tables yang akan mentranslasikan (SNAT-masquerade) setiap paket yang akan keluar dari interface ens5
+````
+sudo iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
+````
 
 ---
 ## D. Load Balancer NginX
