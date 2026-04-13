@@ -126,43 +126,52 @@ Instance state > Start instance
 
 
 ## D. Load Balancer NginX
+
+D.1. Jadi super user / root
 ````
 sudo su
 ````
 
+D.2. Update package dari repository 
 ````
 apt update -y 
 ````
 
+D.3. Install paket yang dibutuhkan 
 ````
 apt install nodejs npm git -y
 ````
 
+D.4. Buat folder untuk tempat aplikasi node.js 
 ````
 mkdir -p /opt/monitor-app
 ````
 
+D.5. Masuk foldernya
 ````
 cd /opt/monitor-app
 ````
 
-````
+D.6. Clone Repo Aplikasi info server untuk load balancer
+```
 git clone https://github.com/paknux/nginx-loadbalancer .
 ````
 
+D.7. Instal library yang diperlukan 
 ````
 npm install express socket.io os-utils systeminformation
 ````
 
+D.8. Pasang di crontab agar aplikasi Info Server node.js berjalan saat boot 
 ````
 (crontab -l 2>/dev/null; echo "@reboot sleep 10 && /usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &") | crontab -
 ````
 
+D.9. jalankan aplikasi Info Server node.js sekarang 
 ````
 /usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &
 ````
 
-````
 
 ---
 User Data
