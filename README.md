@@ -177,7 +177,7 @@ D.9. jalankan aplikasi Info Server node.js sekarang
 
 
 ---
-User Data
+Atau daat menggunakan User Data
 ````
 #!/bin/bash
 # 1. Update & Install
