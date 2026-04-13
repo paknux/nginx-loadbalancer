@@ -1,6 +1,6 @@
 # Load Balancer NginX
 ---
-![Infra](/image/infra.png)
+![Infra](/image/topologi-infra.png)
 
 
 ---
