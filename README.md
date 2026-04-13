@@ -1,7 +1,7 @@
 # Load Balancer NginX
 
+---
 ## A. Konfigurasi
-
 
 VPC
 ````
@@ -48,9 +48,11 @@ sekolah-private-rt:
 subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
 0.0.0.0/0 via NAT instance srv-public
 ````
----
 
+
+---
 ## B. Ganti Hostname yang sesuai
+
 Masuk ke setiap instance jalankan perintah
 
 srv-public:
@@ -67,9 +69,6 @@ lakukan hal yang sama untuk srv-private-1 dan srv-private-2
 
 
 ---
-
-
-
 ## C. Setting srv-public agar dapat menjadi NAT Instance
 
 Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:
@@ -82,9 +81,9 @@ sudo sysctl -p
 ````
 
 
+
 ---
 ## D. Load Balancer NginX
-
 
 ````
 #!/bin/bash
