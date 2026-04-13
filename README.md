@@ -41,11 +41,11 @@ sekolah-igw attach ke VPC sekolah
 A.6. Route table : 2 buah
 ````
 sekolah-public-rt:
-subnet-associate ke subnet-public
+subnet-associations ke subnet-public
 0.0.0.0/0 via IGW sekolah-igw
 
 sekolah-private-rt:
-subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
+subnet-associations ke subnet-private-1, subnet-private-2, subnet-private-3
 0.0.0.0/0 via NAT instance srv-public
 ````
 
