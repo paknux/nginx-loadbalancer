@@ -99,8 +99,8 @@ sudo iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
 C5. Agar aturan ini tidak hilang saat reboot, instal iptables-persistent:
 ````
 sudo apt update && sudo apt install iptables-persistent -y
-# Pilih 'Yes' saat muncul dialog konfirmasi penyimpanan rules
 ````
+Pilih 'Yes' saat muncul dialog konfirmasi penyimpanan rules
 
 
 
