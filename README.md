@@ -50,6 +50,7 @@ subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
 ````
 
 
+
 ---
 ## B. Ganti Hostname yang sesuai
 
@@ -66,6 +67,7 @@ exec bash
 ````
 
 lakukan hal yang sama untuk srv-private-1 dan srv-private-2
+
 
 
 ---
