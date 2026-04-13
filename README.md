@@ -1,4 +1,7 @@
 # Load Balancer NginX
+---
+![Infra](/image/infra.png)
+
 
 ---
 ## A. Konfigurasi
