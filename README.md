@@ -2,7 +2,7 @@
 ---
 
 ## Konfigurasi
----
+
 
 VPC
 ````
