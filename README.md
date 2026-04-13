@@ -61,7 +61,7 @@ misal di srv-public:
 sudo hostnamectl set-hostname srv-public
 ````
 
-. lalu jalankan bash lembali agar perubahan langsung tampak
+lalu jalankan bash lembali agar perubahan langsung tampak
 ````
 exec bash
 ````
