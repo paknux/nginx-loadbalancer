@@ -107,7 +107,7 @@ C6. Shutdown instance
 C7. Stop Monitoring
 ````
 
----
+````
 
 C8. Run kembali instance
 
