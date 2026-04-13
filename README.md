@@ -102,9 +102,16 @@ sudo apt update && sudo apt install iptables-persistent -y
 ````
 Pilih 'Yes' saat muncul dialog konfirmasi penyimpanan rules
 
+C6. Shutdown instance
 
+C7. Stop Monitoring
+````
 
 ---
+
+C8. Run kembali instance
+
+
 ## D. Load Balancer NginX
 
 ````
