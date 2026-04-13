@@ -26,7 +26,7 @@ srv-private-2 : ubuntu : di subnet-private-2
 
 1 SG
 ````
-sg-sekolah
+sg-sekolah:
 allow inbound 22/SSH, 80/HTTP, 443/HTTPS, ICMP
 from 0.0.0.0/0
 ````
@@ -39,11 +39,11 @@ sekolah-igw attach ke VPC sekolah
 
 2 route table
 ````
-sekolah-public-rt
+sekolah-public-rt:
 subnet-associate ke subnet-public
 0.0.0.0/0 via IGW sekolah-igw
 
-sekolah-private-rt
+sekolah-private-rt:
 subnet-associate ke subnet-private-1, subnet-private-2, subnet-private-3
 0.0.0.0/0 via NAT instance srv-public
 ````
