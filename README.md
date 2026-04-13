@@ -198,3 +198,29 @@ npm install express socket.io os-utils systeminformation
 /usr/bin/node /opt/monitor-app/server.js >> /opt/monitor-app/monitor.log 2>&1 &
 ````
 
+## E. Test Aplikasi Server Info sudah run di srv-private-1 dan srv-private-2  
+
+Test Aplikasi Server Info sudah berjalan di srv-private-1 dan srv-private-2 dari srv-public
+
+Updatae repo
+````
+sudo apt update
+````
+
+Install aplikasi yang diperlukan
+````
+sudo apt install links
+````
+
+dari srv-public test srv-private-1
+misal ip srv-private-1 adalah 192.168.100.114
+````
+links 192.168.100.114:3000
+````
+
+
+dari srv-public test srv-private-2
+misal ip srv-private-1 adalah 192.168.100.205
+````
+links 192.168.100.205:3000
+````
