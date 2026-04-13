@@ -224,3 +224,50 @@ misal ip srv-private-1 adalah 192.168.100.205
 ````
 links 192.168.100.205:3000
 ````
+
+## F. Konfigurasi load balancing nginx di srv-public
+Buat file konfigurasi baru di /etc/nginx/sites-available/ atau edit file default.
+````
+sudo nano /etc/nginx/sites-available/load-balancer
+````
+
+Lalu Masukkan konfigurasi berikut:
+
+````
+# Mendefinisikan grup server backend
+upstream backend_servers {
+    # Metode distribusi (opsional, default: Round Robin)
+    # least_conn; # Mengirim ke server dengan koneksi paling sedikit
+    
+    server 10.0.0.101; # IP Server Backend 1
+    server 10.0.0.102; # IP Server Backend 2
+    server 10.0.0.103; # IP Server Backend 3 (Cadangan)
+}
+
+server {
+    listen 80;
+    server_name domainanda.com;
+
+    location / {
+        proxy_pass http://backend_servers;
+        
+        # Header penting agar backend tahu IP asli pengunjung
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+````
+
+4. Aktifkan Konfigurasi
+Buat symbolic link ke folder sites-enabled dan uji konfigurasinya:
+````
+sudo ln -s /etc/nginx/sites-available/load-balancer /etc/nginx/sites-enabled/
+sudo nginx -t
+````
+
+Jika muncul pesan syntax is ok, muat ulang Nginx:
+````
+sudo systemctl restart nginx  
+````
