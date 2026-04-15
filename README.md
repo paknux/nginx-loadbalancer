@@ -79,7 +79,11 @@ B.2. Lakukan hal yang sama untuk srv-private-1 dan srv-private-2
 ---
 ## C. Setting srv-public agar dapat menjadi NAT Instance
 
-C.1. Buka file /etc/sysctl.conf dan hapus tanda komentar (#) pada baris:
+C.1. Buka file /etc/sysctl.conf 
+````
+sudo nano /etc/sysctl.conf
+````
+dan hapus tanda komentar (#) pada baris berikut ini:
 ````
 net.ipv4.ip_forward=1
 ````
