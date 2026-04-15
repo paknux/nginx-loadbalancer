@@ -246,8 +246,8 @@ upstream backend_servers {
     # Metode distribusi (opsional, default: Round Robin)
     # least_conn; # Mengirim ke server dengan koneksi paling sedikit
     
-    server 192.168.100.114:3000; # IP dan port Server Backend 1
-    server 192.168.100.205:3000; # IP dan port Server Backend 2
+    server 192.168.100.114:3000; # IP dan port 1 srv-private-1
+    server 192.168.100.205:3000; # IP dan port 1 srv-private-2
 }
 
 server {
